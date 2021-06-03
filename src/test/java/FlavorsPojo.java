@@ -1,5 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
+@Data
 public class FlavorsPojo {
 
     public void setName(String name) {
@@ -12,15 +14,7 @@ public class FlavorsPojo {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
 
-        private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
+    private String name;
 
     private String url;
 }

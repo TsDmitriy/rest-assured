@@ -1,14 +1,10 @@
-public class Flavor{
+import lombok.Data;
+
+@Data
+public class Flavor {
 
 
-	private String name;
-	private String url;
+    private String name;
+    private String url;
 
-	public String getName(){
-		return name;
-	}
-
-	public String getUrl(){
-		return url;
-	}
 }

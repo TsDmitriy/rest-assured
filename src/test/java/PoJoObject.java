@@ -1,7 +1,8 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 public class PoJoObject{
 
 	private List<FlavorsItem> flavors;
@@ -21,52 +22,4 @@ public class PoJoObject{
 	private int id;
 	@JsonProperty("max_harvest")
 	private int maxHarvest;
-
-	public List<FlavorsItem> getFlavors(){
-		return flavors;
-	}
-
-	public NaturalGiftType getNaturalGiftType(){
-		return naturalGiftType;
-	}
-
-	public Item getItem(){
-		return item;
-	}
-
-	public int getSmoothness(){
-		return smoothness;
-	}
-
-	public int getSize(){
-		return size;
-	}
-
-	public int getNaturalGiftPower(){
-		return naturalGiftPower;
-	}
-
-	public Firmness getFirmness(){
-		return firmness;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public int getGrowthTime(){
-		return growthTime;
-	}
-
-	public int getSoilDryness(){
-		return soilDryness;
-	}
-
-	public int getId(){
-		return id;
-	}
-
-	public int getMaxHarvest(){
-		return maxHarvest;
-	}
 }
