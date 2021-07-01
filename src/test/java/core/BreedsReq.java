@@ -9,6 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import pojo.BreedsPojo;
+import pojo.FavouritesPogo;
 import pojo.MessagePogo;
 import pojo.ResponsePojo;
 import untils.Stash;
@@ -64,7 +65,6 @@ public class BreedsReq {
         JSONObject requestParams = new JSONObject();
         requestParams.put("image_id", Stash.getValue("id"));
 
-
         RestAssured.baseURI ="http://api.thecatapi.com";
 
         RequestSpecification request = RestAssured.given();
@@ -84,6 +84,26 @@ public class BreedsReq {
         String imageId = Integer.toString(resp.getId());
         Stash.put("idFavourites",imageId);
         Assertions.assertEquals( "SUCCESS", successCode, "Некорректный статус");
+        return this;
+    }
+
+    public BreedsReq checkFavourites() {
+
+        RestAssured.baseURI ="http://api.thecatapi.com";
+
+        RequestSpecification request = RestAssured.given();
+        request.contentType(ContentType.JSON);
+        request.header("x-api-key","6a040f7b-7230-479a-a94f-ce5bccf7937b");
+        request.header("user-agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36");
+        request.header("accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9");
+        request .header(":scheme","https");
+
+        Response response = request.get();
+
+        Gson gson = new Gson();
+        FavouritesPogo resp = gson.fromJson(response.asPrettyString(), FavouritesPogo.class);
+
+
         return this;
     }
 }
