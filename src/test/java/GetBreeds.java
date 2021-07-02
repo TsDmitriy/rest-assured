@@ -11,7 +11,9 @@ public class GetBreeds {
     @Test
     public void test() throws JsonProcessingException {
         new BreedsReq().getbreedid()
-                .getImages().favouritesAdd();
+                .getImages().
+                favouritesAdd()
+                .checkFavourites();
 
 
     }
